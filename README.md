@@ -1,5 +1,4 @@
-# wrapper-paseto
-Wrapper Platform-Agnostic Security Tokens
+# Wrapper Platform-Agnostic Security Tokens
 
 The following Go code creates a new instance of the "tokenMaker" using the "token.NewPasetoMaker" function and passing in the string argument "example".
 ```go
