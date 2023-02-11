@@ -10,12 +10,13 @@ import (
 type Payload struct {
 	ID        uuid.UUID `json:"id"`
 	UserID    uuid.UUID `json:"user_id"`
+	Place     string    `json:"place"`
 	IssuedAt  time.Time `json:"issued_at"`
 	ExpiredAt time.Time `json:"expired_at"`
 }
 
 // NewPayload creates a new token payload with a specific username and duration
-func NewPayload(userID uuid.UUID, duration time.Duration) (*Payload, error) {
+func NewPayload(userID uuid.UUID, place string, duration time.Duration) (*Payload, error) {
 
 	// Generates a new token ID using the UUID v7 format
 	tokenID, err := uuid.NewV7()
@@ -27,6 +28,7 @@ func NewPayload(userID uuid.UUID, duration time.Duration) (*Payload, error) {
 	payload := &Payload{
 		ID:        tokenID,
 		UserID:    userID,
+		Place:     place,
 		IssuedAt:  time.Now(),
 		ExpiredAt: time.Now().Add(duration),
 	}
